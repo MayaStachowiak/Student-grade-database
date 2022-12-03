@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98df97a6-6618-4ad3-a457-b45f7d2409a7" name="Changes" comment="" />
+    <list default="true" id="98df97a6-6618-4ad3-a457-b45f7d2409a7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/database_exercise/Subjects.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database_exercise/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database_exercise/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database_exercise/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database_exercise/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database_exercise/StudentsList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database_exercise/StudentsList.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,14 +20,19 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2IJRYAVXQvGx0CTppjdIkmO3Xkp" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -28,13 +40,27 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable" value="ALL" />
     <property name="settings.editor.selected.configurable" value="build.tools" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="database_exercise.Main" />
+      <module name="Baza-danych" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="database_exercise.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="database_exercise.Test" />
       <module name="Baza-danych" />
       <extension name="coverage">
         <pattern>
@@ -49,6 +75,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -61,11 +88,22 @@
       <option name="presentableId" value="Default" />
       <updated>1669897746863</updated>
       <workItem from="1669897748004" duration="8000" />
-      <workItem from="1669898804348" duration="21130000" />
+      <workItem from="1669898804348" duration="35049000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

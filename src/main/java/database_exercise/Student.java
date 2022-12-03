@@ -1,20 +1,39 @@
 package database_exercise;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Objects;
 
-@AllArgsConstructor
 @Getter
 @Setter
 public class Student implements  Comparable<Student>{
 
+    @NonNull
     private String name, surname;
+    @NonNull
     private int age;
+    @NonNull
     private String city;
+    @NonNull
     private int id;
+
+    protected ArrayList<String> subjects;
+    protected ArrayList<Integer> marks;
+
+    public Student(@NonNull String name, @NonNull String surname, @NonNull int age, @NonNull String city, @NonNull int id) {
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.city = city;
+        this.id = id;
+        subjects = new ArrayList<>();
+        marks = new ArrayList<>();
+    }
+
+
+
 
     @Override
     public boolean equals(Object o) {
