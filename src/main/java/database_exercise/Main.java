@@ -19,7 +19,7 @@ public class Main {
                 System.out.println("2. Dodaj studenta");
                 System.out.println("3. Usuń studenta");
                 System.out.println("4. Dział ocen studenta");
-                System.out.println("5. Zakończ pracę nad bieżącą grupą- przejdź do nowej grupy.");
+                System.out.println("5. Zakończ pracę nad bieżącą grupą- przejdź do nowej grupy");
                 System.out.println("6. Wyjdź z programu");
                 System.out.print("WPISZ SWOJĄ OPCJĘ: ");
                 int userChoice = scanner.nextInt();

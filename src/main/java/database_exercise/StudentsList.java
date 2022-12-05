@@ -69,31 +69,35 @@ public class StudentsList {
 
     public static void addRating () {
 
-         Set<Student> studentsSet = new HashSet<>(students);
-         System.out.print("Wpisz ID studenta: ");
-         int studentId = scanner.nextInt();
+        Set<Student> studentsSet = new HashSet<>(students);
+        System.out.print("Wpisz ID studenta: ");
+        int studentId = scanner.nextInt();
 
-         Student student = studentsSet.stream()
-               .filter(mapping -> mapping.getId() == (studentId))
-               .findFirst()
-               .get();
+        Optional<Student> student = Optional.ofNullable(studentsSet.stream()
+                .filter(mapping -> mapping.getId() == (studentId))
+                .findFirst()
+                .orElse(null));
 
-         if (student != null) {
-             System.out.println("Student o podanym ID nie istnieje w bazie. ");
-         } else {
-             System.out.print("Wpisz przedmiot: ");
-             subject = (scanner.next()) + scanner.nextLine();
-             System.out.print("Wpisz liczbę punktów: ");
-             mark = scanner.nextInt();
+        if (student.isPresent()) {
+            System.out.println(student.get().getName() + " " + student.get().getSurname() + " " + student.get().getId() + "\n");
 
-             if (student.subjectGrades.containsKey(subject)) {
-                 student.subjectGrades.get(subject).add(mark);
-             } else {
-                 student.subjectGrades.put(subject, new ArrayList<>(Arrays.asList(mark)));
-             }
-         }
-        System.out.println();
-    }
+            System.out.print("Wpisz przedmiot: ");
+            subject = (scanner.next()) + scanner.nextLine();
+            System.out.print("Wpisz liczbę punktów: ");
+            mark = scanner.nextInt();
+            System.out.println();
+
+            if (student.get().subjectGrades.containsKey(subject)) {
+                student.get().subjectGrades.get(subject).add(mark);
+            } else {
+                student.get().subjectGrades.put(subject, new ArrayList<>(Arrays.asList(mark)));
+            }
+
+        } else {
+            System.out.println("Student nie istnieje w bazie.\n");
+
+        }
+        }
 
     public static void displayMarksByOne () {
         Set<Student> studentsSet = new HashSet<>(students);
