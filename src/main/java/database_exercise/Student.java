@@ -1,10 +1,7 @@
 package database_exercise;
 
 import lombok.*;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Objects;
+import java.util.*;
 
 @Getter
 @Setter
@@ -19,8 +16,7 @@ public class Student implements  Comparable<Student>{
     @NonNull
     private int id;
 
-    protected ArrayList<String> subjects;
-    protected ArrayList<Integer> marks;
+    protected HashMap<String, List<Integer>> subjectGrades;
 
     public Student(@NonNull String name, @NonNull String surname, @NonNull int age, @NonNull String city, @NonNull int id) {
         this.name = name;
@@ -28,12 +24,8 @@ public class Student implements  Comparable<Student>{
         this.age = age;
         this.city = city;
         this.id = id;
-        subjects = new ArrayList<>();
-        marks = new ArrayList<>();
+        subjectGrades= new HashMap<>();
     }
-
-
-
 
     @Override
     public boolean equals(Object o) {
@@ -51,11 +43,11 @@ public class Student implements  Comparable<Student>{
     @Override
     public String toString() {
         return "Student{" +
-                "name: " + name  +
-                ", surname: " + surname +
-                ", age: " + age +
-                ", city: " + city +
-                ", id: " + id +
+                "Imię: " + name  +
+                ", nazwisko: " + surname +
+                ", wiek: " + age +
+                ", miasto urodzenia: " + city +
+                ", ID: " + id +
                 '}';
     }
 

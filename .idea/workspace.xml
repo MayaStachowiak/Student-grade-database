@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98df97a6-6618-4ad3-a457-b45f7d2409a7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/database_exercise/Subjects.java" afterDir="false" />
+    <list default="true" id="98df97a6-6618-4ad3-a457-b45f7d2409a7" name="Changes" comment="3 commit- poprawa funkcjonalności, dodanie try/catch&#10;&#10;Dział ocen studenta- poprawa funkcjonalności, dodanie HashMap zamiast Set i List&#10;Main- poprawa wyglądu menu&#10;Main- dodanie bloku try/catch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/database_exercise/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database_exercise/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/database_exercise/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database_exercise/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/database_exercise/StudentsList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/database_exercise/StudentsList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/database_exercise/Subjects.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,8 +87,16 @@
       <option name="presentableId" value="Default" />
       <updated>1669897746863</updated>
       <workItem from="1669897748004" duration="8000" />
-      <workItem from="1669898804348" duration="35049000" />
+      <workItem from="1669898804348" duration="49167000" />
     </task>
+    <task id="LOCAL-00001" summary="2 commit- dodana funkcjonalność związana z ocenami (dodaj ocenę, wyświetl oceny po ID, wyświetl oceny wszystkich studentów">
+      <created>1670062951283</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1670062951284</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -105,5 +112,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="2 commit- dodana funkcjonalność związana z ocenami (dodaj ocenę, wyświetl oceny po ID, wyświetl oceny wszystkich studentów" />
+    <MESSAGE value="3 commit- poprawa funkcjonalności, dodanie try/catch&#10;&#10;Dział ocen studenta- poprawa funkcjonalności, dodanie HashMap zamiast Set i List&#10;Main- poprawa wyglądu menu&#10;Main- dodanie bloku try/catch" />
+    <option name="LAST_COMMIT_MESSAGE" value="3 commit- poprawa funkcjonalności, dodanie try/catch&#10;&#10;Dział ocen studenta- poprawa funkcjonalności, dodanie HashMap zamiast Set i List&#10;Main- poprawa wyglądu menu&#10;Main- dodanie bloku try/catch" />
   </component>
 </project>

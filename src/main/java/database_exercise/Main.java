@@ -1,5 +1,6 @@
 package database_exercise;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import static database_exercise.StudentsList.*;
@@ -11,50 +12,67 @@ public class Main {
         StudentsList studentsList=new StudentsList();
         boolean shouldContinue = true;
 
-        while(shouldContinue) {
-            System.out.println("1-Wyświetl grupę wg. nazwisk lub wieku / 2- usuń studenta z listy / 3-  Przejdź do innej grupy studentów / 4- dodaj nowego studenta / " +
-                    "5-wyjdź z programu 6- Oceny 1-dodaj 2-wyświetl ocenę jednego studenta 3- wszystkie oceny");
-            System.out.println("Wybierz swoją opcję: ");
-            int userChoice = scanner.nextInt();
-            System.out.println();
+        try {
+            while (shouldContinue) {
+                System.out.println("**********MENU**********");
+                System.out.println("1. Wyświetl grupę");
+                System.out.println("2. Dodaj studenta");
+                System.out.println("3. Usuń studenta");
+                System.out.println("4. Dział ocen studenta");
+                System.out.println("5. Zakończ pracę nad bieżącą grupą- przejdź do nowej grupy.");
+                System.out.println("6. Wyjdź z programu");
+                System.out.print("WPISZ SWOJĄ OPCJĘ: ");
+                int userChoice = scanner.nextInt();
 
-        switch (userChoice) {
-            case 1:
-                System.out.println("Wyświetl według: 1- nazwiska 2- wieku");
-                int display = scanner.nextInt();
-                if (display==1) {
-                    displayStudentsBySurname();
-                } else if (display==2) {
-                    displayStudentsByAge();
+                switch (userChoice) {
+                    case 1:
+                        System.out.print("Wyświetl grupę według: 1.Nazwisk 2.Wieku. WPISZ SWOJĄ OPCJĘ: ");
+                        int userChoice1 = scanner.nextInt();
+                        System.out.println();
+                        if (userChoice1 == 1) {
+                            displayStudentsBySurname();
+                        } else if (userChoice1 == 2) {
+                            displayStudentsByAge();
+                        } else {
+                            System.out.println("NIE MA TAKIEJ OPCJI- SPRÓBUJ PONOWNIE\n");
+                        }
+                        break;
+                    case 2:
+                        addStudent();
+                        break;
+                    case 3:
+                        removeStudent();
+                        break;
+                    case 4:
+                        System.out.print("1.Dodaj ocenę. 2.Wyświetl oceny jednego studenta. 3.Wyświetl oceny całej grupy. WPISZ SWOJĄ OPCJĘ: ");
+                        int userChoice2 = scanner.nextInt();
+                        System.out.println();
+                        if (userChoice2 == 1) {
+                            addRating();
+                        } else if (userChoice2 == 2) {
+                            displayMarksByOne();
+                        } else if (userChoice2 == 3) {
+                            displayAllMarks();
+                        } else {
+                            System.out.println("NIE MA TAKIEJ OPCJI- SPRÓBUJ PONOWNIE\n");
+                        }
+                        break;
+                    case 5:
+                        studentsList = new StudentsList();
+                        System.out.println("Przeszedłeś do nowej grupy studentów.\n");
+                        break;
+                    case 6:
+                        shouldContinue = false;
+                        break;
+                    default:
+                        System.out.println("\nNIE MA TAKIEJ OPCJI- SPRÓBUJ PONOWNIE\n");
                 }
-                break;
-            case 2:
-                removeStudent();
-                break;
-            case 3:
-                studentsList=new StudentsList();
-                System.out.println("Przeszedłeś do nowej grupy studentów.");
-                break;
-            case 4:
-               addStudent();
-               break;
-            case 5:
-                shouldContinue=false;
-                break;
-            case 6:
-                System.out.println("1-dodaj ocenę 2-wyświetl oceny jdnego ucznia 3- wyświetl wszystkie oceny");
-                int display2 = scanner.nextInt();
-                if (display2==1) {
-                    addMarks();
-                } else if (display2==2) {
-                    displayMarksByOne();
-                } else if (display2==3) {
-                    displayAllMarks();
-                }
-                break;
-            default:
-                System.out.println("Nie ma takiej opcji- spróbuj ponownie.");
-        }
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("\n**********Wybrano nieistniejącą opcję. Uruchom program raz jeszcze i zastosuj się do instrukcji**********\n");
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         scanner.close();
     }

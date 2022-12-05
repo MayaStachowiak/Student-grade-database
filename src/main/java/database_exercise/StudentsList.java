@@ -8,13 +8,13 @@ import com.github.javafaker.Number;
 import java.util.*;
 import java.util.stream.Collectors;
 
-
-
 public class StudentsList {
 
     public static ArrayList<Student> students;
     private static Scanner scanner = new Scanner(System.in);
-
+    private static HashMap <String, List <Integer>> subjectGrades = new HashMap<>();
+    private static String subject;
+    private static int mark;
 
     public StudentsList() {
         students = new ArrayList<>();
@@ -43,13 +43,14 @@ public class StudentsList {
         System.out.print("6 cyfrowy numer ID: ");
         int id = scanner.nextInt();
 
-
         Student student = new Student(name, surname,age, city, id);
         students.add(student);
+        System.out.println("Nowy student dodany do bazy.");
+        System.out.println();
     }
 
     public static void displayStudentsBySurname() {
-        students.sort((s1, s2) -> s1.getSurname().compareTo(s2.getSurname()));
+        students.sort(Comparator.comparing(Student::getSurname));
         Iterator<Student> iterator = students.iterator();
         while (iterator.hasNext()) {
             System.out.println(iterator.next());
@@ -58,7 +59,7 @@ public class StudentsList {
     }
 
     public static void displayStudentsByAge() {
-        students.sort((s1, s2) -> s1.getAge() - s2.getAge());
+        students.sort(Comparator.comparingInt(Student::getAge));
         Iterator<Student> iterator = students.iterator();
         while (iterator.hasNext()) {
             System.out.println(iterator.next());
@@ -66,25 +67,34 @@ public class StudentsList {
         System.out.println();
     }
 
-    public static void addMarks () {
-        Set<Student> studentsSet = new HashSet<>(students);
-        System.out.print("Wpisz ID studenta: ");
-        int studentId = scanner.nextInt();
+    public static void addRating () {
 
-        Student student = studentsSet.stream()
-                .filter(mapping -> mapping.getId() == (studentId))
-                .findFirst()
-                .get();
+         Set<Student> studentsSet = new HashSet<>(students);
+         System.out.print("Wpisz ID studenta: ");
+         int studentId = scanner.nextInt();
 
-        System.out.println("Wpisz przedmiot: ");
-        String subject = scanner.next() + scanner.nextLine();
-        System.out.println("Wpisz liczbę punktów: ");
-        int mark = scanner.nextInt();
-        student.subjects.add(subject);
-        student.marks.add(mark);
+         Student student = studentsSet.stream()
+               .filter(mapping -> mapping.getId() == (studentId))
+               .findFirst()
+               .get();
 
+         if (student != null) {
+             System.out.println("Student o podanym ID nie istnieje w bazie. ");
+         } else {
+             System.out.print("Wpisz przedmiot: ");
+             subject = (scanner.next()) + scanner.nextLine();
+             System.out.print("Wpisz liczbę punktów: ");
+             mark = scanner.nextInt();
 
+             if (student.subjectGrades.containsKey(subject)) {
+                 student.subjectGrades.get(subject).add(mark);
+             } else {
+                 student.subjectGrades.put(subject, new ArrayList<>(Arrays.asList(mark)));
+             }
+         }
+        System.out.println();
     }
+
     public static void displayMarksByOne () {
         Set<Student> studentsSet = new HashSet<>(students);
         System.out.print("Wpisz ID studenta którego oceny chcesz zobaczyć: ");
@@ -96,20 +106,35 @@ public class StudentsList {
                 .get();
 
         System.out.println(student.getName() + " " + student.getSurname() + " OCENY: ");
-        System.out.println(student.getSubjects() + " " + student.getMarks());
-
+        if (student.subjectGrades.isEmpty()) {
+            System.out.println("[Lista ocen studenta jest pusta]");
+        } else {
+            student.subjectGrades.entrySet().stream().map(e -> e.getKey() + ": " + e.getValue()).forEach(System.out::println);
+        }
+        System.out.println();
     }
     public static void displayAllMarks () {
-        students.sort((s1, s2) -> s1.getSurname().compareTo(s2.getSurname()));
+        students.sort(Comparator.comparing(Student::getSurname));
 
         for (int i =0; i< students.size(); i++) {
-            System.out.println(students.get(i).getName() + " " + students.get(i).getSurname());
-            System.out.println(students.get(i).getSubjects() + " " + students.get(i).getMarks());
+            System.out.println(students.get(i).getName() + " " + students.get(i).getSurname() + "\tID: " + students.get(i).getId());
+
+            if (students.get(i).subjectGrades.isEmpty()) {
+                System.out.println("[Lista ocen studenta jest pusta]");
+            } else {
+                for (Map.Entry<String, List<Integer>> me : students.get(i).subjectGrades.entrySet()) {
+                    List<Integer> valueList = me.getValue();
+                    System.out.print("Przedmiot: " + me.getKey());
+                    System.out.print("\tOceny: ");
+                    for (Integer in : valueList) {
+                        System.out.print(in + " ");
+                    }
+                    System.out.println();
+                }
+            }
             System.out.println();
         }
         }
-
-
 
     public static void removeStudent() {
         System.out.print("Wpisz ID studenta: ");
@@ -128,12 +153,10 @@ public class StudentsList {
                     .get();
 
             students.remove(student);
-            System.out.println("Student został pomyślnie usunięty z listy.\n");
+            System.out.println("Student został pomyślnie usunięty z bazy.\n");
         } else {
             System.out.println("Student o podanym ID nie istnieje w bazie danych.\n");
         }
-
-
     }
 }
 
