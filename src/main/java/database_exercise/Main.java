@@ -23,6 +23,7 @@ public class Main {
                 System.out.println("6. Wyjdź z programu");
                 System.out.print("WPISZ SWOJĄ OPCJĘ: ");
                 int userChoice = scanner.nextInt();
+                System.out.println();
 
                 switch (userChoice) {
                     case 1:
